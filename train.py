@@ -7,7 +7,6 @@ from torchvision import datasets, transforms
 from model import SimpleCNN
 
 def get_loaders(batch_size=128, num_workers=2):
-    # 题面要求输入 64x64，所以这里把 CIFAR-10 从 32x32 Resize 到 64x64
     train_tf = transforms.Compose([
         transforms.Resize((64, 64)),
         transforms.RandomHorizontalFlip(),
@@ -90,5 +89,4 @@ def train(epochs=10, lr=1e-3, batch_size=128):
     print("Training finished. Best acc:", best_acc)
 
 if __name__ == "__main__":
-    # 可用命令行参数也行，这里给默认参数
     train(epochs=10, lr=1e-3, batch_size=128)
