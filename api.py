@@ -24,7 +24,7 @@ preprocess = transforms.Compose([
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     """
-    Body: multipart/form-data，字段名 'file'，值为图片文件
+    Body: multipart/form-data
     Return: {"class": str, "prob": float, "index": int}
     """
     contents = await file.read()
@@ -38,7 +38,7 @@ async def predict(file: UploadFile = File(...)):
         prob = float(probs[idx].item())
     return {"class": CIFAR10_CLASSES[idx], "prob": prob, "index": idx}
 
-# 为了避免顶层导入 io
+
 import io
 
 # 本地启动： uvicorn api:app --host 0.0.0.0 --port 8000
