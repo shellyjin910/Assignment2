@@ -4,7 +4,6 @@ import torch.nn as nn
 
 class SimpleCNN(nn.Module):
     """
-    题面 CNN 结构（输入 64x64x3）：
     Conv2d(3→16, k3, s1, p1) → ReLU → MaxPool(2,2)
     Conv2d(16→32, k3, s1, p1) → ReLU → MaxPool(2,2)
     Flatten → FC(8192→100) → ReLU → FC(100→10)
@@ -20,7 +19,7 @@ class SimpleCNN(nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
         )
-        # 64x64 → 池化两次后变 16x16，通道 32 → 32*16*16=8192
+        
         self.classifier = nn.Sequential(
             nn.Flatten(),
             nn.Linear(32 * 16 * 16, 100),
