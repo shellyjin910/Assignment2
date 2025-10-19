@@ -8,3 +8,17 @@ wheels/
 
 # Virtual environments
 .venv
+# datasets & caches
+data/
+*.tar
+*.tar.gz
+*.zip
+
+# model artifacts
+*.pt
+*.pth
+
+# python noise
+__pycache__/
+*.pyc
+.DS_Store
