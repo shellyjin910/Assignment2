@@ -22,3 +22,12 @@ data/
 __pycache__/
 *.pyc
 .DS_Store
+data/
+*.tar
+*.tar.gz
+*.zip
+*.pt
+*.pth
+__pycache__/
+*.pyc
+.DS_Store
